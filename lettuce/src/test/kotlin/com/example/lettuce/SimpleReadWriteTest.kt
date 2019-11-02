@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
 
 
 @Testcontainers
-class SyncTest {
+class SimpleReadWriteTest {
 
     @Container
     val redis: GenericContainer<Nothing> =
