@@ -27,6 +27,8 @@ plugins {
 
 allprojects {
 
+    group = "con.example"
+
     val junitJupiterVersion: String by rootProject.extra
     val log4jVersion: String by rootProject.extra
 
