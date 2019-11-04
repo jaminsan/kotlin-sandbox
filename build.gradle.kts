@@ -10,10 +10,14 @@ buildscript {
 
     repositories {
         jcenter()
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
     }
 
     dependencies {
         classpath(kotlin("gradle-plugin", version = kotlinVersion))
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE")
     }
 
 }
@@ -23,6 +27,9 @@ plugins {
     base
     java
     kotlin("jvm") version "1.3.50" apply false
+    id("org.springframework.boot") version "2.2.0.RELEASE" apply false
+    id("io.spring.dependency-management") version "1.0.8.RELEASE" apply false
+    kotlin("plugin.spring") version "1.3.50" apply false
 }
 
 allprojects {
