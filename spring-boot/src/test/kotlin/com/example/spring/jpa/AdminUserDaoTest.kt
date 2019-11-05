@@ -44,7 +44,7 @@ class AdminUserDaoTest @Autowired constructor(
     }
 
     @Test
-    fun `findAllUnion return all record of admin_user and user`() {
+    fun `findAllAdminUnionFindAllUser return all record of admin_user and user`() {
         val adminUsers = adminUserDao.findAllAdminUnionFindAllUser()
 
         //AdminUser(id=1, name=admin1, department=Sales)
@@ -62,7 +62,7 @@ class AdminUserDaoTest @Autowired constructor(
     }
 
     @Test
-    fun `findAllWithPageable return all record of admin_user and user`() {
+    fun `findAllAdminUnionFindAllUserWithPageable return all record of admin_user and user`() {
         val adminUsers = adminUserDao.findAllAdminUnionFindAllUserWithPageable(PageRequest.of(0, 5))
 
         //AdminUser(id=1, name=admin1, department=Sales)
