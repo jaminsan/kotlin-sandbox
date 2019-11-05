@@ -12,12 +12,12 @@ interface AdminUserDao : CrudRepository<AdminUser, Long> {
         countQuery = "select count(1) from (select id from admin_user union all select id from user)",
         nativeQuery = true
     )
-    fun findAllUnion(): List<AdminUser>
+    fun findAllAdminUnionFindAllUser(): List<AdminUser>
 
     @Query(
         value = "select id, name, department from admin_user union all select id, name, '' from user",
         countQuery = "select count(1) from (select id from admin_user union all select id from user)",
         nativeQuery = true
     )
-    fun findAllWithPageable(pageable: Pageable): Page<AdminUser>
+    fun findAllAdminUnionFindAllUserWithPageable(pageable: Pageable): Page<AdminUser>
 }
