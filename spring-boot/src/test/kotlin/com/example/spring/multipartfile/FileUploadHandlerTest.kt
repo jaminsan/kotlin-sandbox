@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.core.io.ClassPathResource
+import org.springframework.http.MediaType
 import org.springframework.mock.web.MockMultipartFile
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
@@ -24,19 +25,18 @@ class FileUploadHandlerTest {
         val excelFile = MockMultipartFile(
             "file",
             "test.xlsx",
-            "application/octet-stream",
+            MediaType.APPLICATION_OCTET_STREAM_VALUE,
             IOUtils.toByteArray(ClassPathResource("test.xlsx").inputStream))
         val jsonFile = MockMultipartFile(
             "meta",
             null,
-            "application/json",
+            MediaType.APPLICATION_JSON_VALUE,
             "{\"id\": 1, \"name\": \"test\"}".toByteArray())
 
         val mockMvc = MockMvcBuilders.webAppContextSetup(wac).build()
         mockMvc.perform(MockMvcRequestBuilders.multipart("/uploadFile")
             .file(excelFile)
-            // TODO: 415 になってしまう
-//            .file(jsonFile)
+            .file(jsonFile)
         ).andExpect(status().`is`(200))
     }
 }
