@@ -3,7 +3,6 @@ package com.example.spring.multipartfile
 import com.monitorjbl.xlsx.StreamingReader
 import org.apache.poi.ss.usermodel.Workbook
 import org.springframework.context.annotation.Configuration
-import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.PostMapping
@@ -20,10 +19,7 @@ class Config {
     @Controller
     class FileUploadHandler {
 
-        @PostMapping(
-            "/uploadFile",
-            consumes = [MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_OCTET_STREAM_VALUE]
-        )
+        @PostMapping("/uploadFile")
         fun uploadFile(@RequestPart("file") file: MultipartFile, @RequestPart("meta") meta: Meta): ResponseEntity<Void> {
             buildWorkbook(file).use { workBook ->
                 validateFileData(workBook)
