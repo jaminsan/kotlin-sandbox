@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>hoge</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+  let params = new FormData()
+  params.append("file", new Blob(['hogehoge,hogehoge,hogehoge'], {type: 'text/csv'}))
+  params.append("meta", new Blob([JSON.stringify({name: 'name', comment: 'comment'})], {type: 'application/json'}))
+
+  config = {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  }
+  let res =
+    this.axios.post("http://localhost:8080/upload", params, config)
+      .then(res => console.log(res))
+      .catch(e => console.log(e))
+</script>
+</body>
+</html>
+
