@@ -3,21 +3,23 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
 
-    val kotlinVersion by extra { "1.3.50" }
-    val junitJupiterVersion by extra { "5.1.0" }
+    val kotlinVersion by extra { "1.3.70" }
+    val junitJupiterVersion by extra { "5.6.2" }
     val log4jVersion by extra { "2.9.0" }
-    val arrowVersion by extra { "0.9.1-SNAPSHOT" }
+    val arrowVersion by extra { "0.10.5" }
 
     repositories {
         jcenter()
         maven {
             url = uri("https://plugins.gradle.org/m2/")
         }
+        maven("https://repo.spring.io/snapshot")
+        maven("https://repo.spring.io/milestone")
     }
 
     dependencies {
         classpath(kotlin("gradle-plugin", version = kotlinVersion))
-        classpath("io.spring.gradle:dependency-management-plugin:1.0.8.RELEASE")
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE")
     }
 
 }
@@ -26,10 +28,10 @@ buildscript {
 plugins {
     base
     java
-    kotlin("plugin.jpa") version "1.3.50" apply false
-    kotlin("jvm") version "1.3.50" apply false
-    id("org.springframework.boot") version "2.2.0.RELEASE" apply false
-    id("io.spring.dependency-management") version "1.0.8.RELEASE" apply false
+    kotlin("plugin.jpa") version "1.3.70" apply false
+    kotlin("jvm") version "1.3.70" apply false
+    id("org.springframework.boot") version "2.3.0.RELEASE" apply false
+    id("io.spring.dependency-management") version "1.0.9.RELEASE" apply false
     kotlin("plugin.spring") version "1.3.50" apply false
 }
 
@@ -61,6 +63,9 @@ allprojects {
         maven("https://oss.sonatype.org/content/repositories/snapshots")
         maven("https://dl.bintray.com/arrow-kt/arrow-kt/")
         maven("https://oss.jfrog.org/artifactory/oss-snapshot-local/")
+        maven("https://repo.spring.io/snapshot")
+        maven("https://repo.spring.io/milestone")
+        maven("https://repo.spring.io/libs-milestone")
     }
 
     dependencies {

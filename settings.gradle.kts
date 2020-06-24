@@ -3,4 +3,4 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
-include("lettuce", "spring-boot")
+include("lettuce", "spring-boot", "poi", "reactive")

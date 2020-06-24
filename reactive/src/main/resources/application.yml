@@ -1,0 +1,22 @@
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          r2dbc: DEBUG
+spring:
+  r2dbc:
+#    url: "r2dbc:h2:mem:///reactive?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;SCHEMA=app"
+#    username: sa
+#    password: ""
+    url: "r2dbcs:mysql://localhost:3306/app"
+    username: root
+    password: ""
+  flyway:
+#    url: "jdbc:h2:mem:///reactive"
+#    user: sa
+#    password: ""
+#    schemas: app
+    url: "jdbc:mysql://localhost:3306/app"
+    user: root
+    password: ""
