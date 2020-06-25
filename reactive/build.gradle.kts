@@ -28,6 +28,10 @@ dependencies {
     implementation("org.springframework.data:spring-data-r2dbc:1.1.1.RELEASE")
     implementation("io.r2dbc:r2dbc-h2:0.8.4.RELEASE")
     implementation("dev.miku:r2dbc-mysql:0.8.1.RELEASE")
+    runtimeOnly("org.springframework.boot:spring-boot-starter-actuator")
+    runtimeOnly("org.springframework.boot.experimental:spring-boot-actuator-r2dbc:0.1.0.M3")
+    runtimeOnly("io.micrometer:micrometer-registry-prometheus")
+    runtimeOnly("io.r2dbc:r2dbc-pool")
     runtimeOnly("mysql:mysql-connector-java")
 
     implementation("org.flywaydb:flyway-core")
